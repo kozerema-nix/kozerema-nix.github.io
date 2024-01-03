@@ -5,11 +5,144 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="src/icons/xmas.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="src/icons/xmas.ico" type="image/x-icon">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Technical Interview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Technical Interview</h2>
-    <script src="script.js"></script>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#js">JS</a></li>
+                <li><a href="#js">HTML</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="#js">JS</a>
+        </li>
+        <li>
+            <a href="#html">HTML</a>
+        </li>
+    </ul>
+</header>
+<div class="container">
+
+    <h5 id="html">HTML</h5>
+    <ul class="collapsible">
+        <li>
+            <div class="collapsible-header"><i class="material-icons">whatshot</i>Що таке DOCTYPE і навіщо його використовують?</div>
+            <div class="collapsible-body">
+                DOCTYPE (Document Type Definition) - це інструкція, яку використовують у HTML-документах для визначення типу документа та версії HTML або XHTML, якою він відповідає. Вона розміщується на самому початку HTML-коду, перед будь-якими тегами html, head, чи body.
+                < !DOCTYPE html > < html lang="uk" > < head >  < body > < /html ><br>
+                Основна роль DOCTYPE:
+                <ol>
+                    <li>
+                        Визначення режиму рендерингу:
+
+                        Деякі браузери мають різні режими рендерингу для старих версій HTML. DOCTYPE допомагає браузерам вибрати правильний режим рендерингу для забезпечення сумісності із стандартами.
+
+                    </li>
+                    <li>
+                        Забезпечення сумісності:
+
+                        Декларація DOCTYPE допомагає визначити версію HTML або XHTML, що використовується в документі. Це важливо для того, щоб браузери могли коректно відображати сторінку відповідно до відповідних стандартів.
+                    </li>
+                    <li>
+                        Уникнення квірксів:
+
+                        Зазначення DOCTYPE допомагає уникнути квірксів (різних режимів рендерингу), які можуть виникати при відображенні сторінки в різних браузерах.
+                    </li>
+                </ol>
+            </div>
+        </li>
+        <li>
+             <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+                 Які основні теги структури HTML-сторінки?
+             </div>
+             <div class="collapsible-body">
+                 <ol><li><p><code>&lt;!DOCTYPE html&gt;</code>: Визначає тип документа та версію HTML.</p></li><li><p><code>&lt;html&gt;</code>: Визначає початок та кінець HTML-документа.</p></li><li><p><code>&lt;head&gt;</code>: Містить мета-інформацію про документ, таку як заголовок, мета-теги, посилання на зовнішні ресурси (стилі, скрипти).</p></li><li><p><code>&lt;title&gt;</code>: Визначає заголовок сторінки, який відображається в заголовку вкладки браузера або на панелі завдань.</p></li><li><p><code>&lt;meta charset="UTF-8"&gt;</code>: Вказує кодування символів для сторінки, зазвичай встановлюється на UTF-8.</p></li><li><p><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>: Встановлює мета-тег для налаштування ширини екрану та масштабування на мобільних пристроях.</p></li><li><p><code>&lt;body&gt;</code>: Містить основний вміст сторінки, такий як текст, зображення, таблиці, форми та інші елементи.</p></li><li><p><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: Визначають заголовки різних рівнів. <code>&lt;h1&gt;</code> - найважливіший, <code>&lt;h6&gt;</code> - найменший.</p></li><li><p><code>&lt;p&gt;</code>: Визначає абзац тексту.</p></li><li><p><code>&lt;a&gt;</code>: Створює посилання на іншу сторінку або ресурс.</p></li><li><p><code>&lt;img&gt;</code>: Вставляє зображення на сторінку.</p></li><li><p><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>: Визначають ненумерований (ul) або нумерований (ol) список та його елементи (li).</p></li><li><p><code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>: Визначають таблицю та її елементи.</p></li><li><p><code>&lt;form&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>: Визначають форму та її елементи для введення даних.</p></li><li><p><code>&lt;div&gt;</code>: Використовується для групування та стилізації інших елементів.</p></li></ol>
+             </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+                Що таке семантичні теги та навіщо вони потрібні? Наведіть приклади таких тегів.
+            </div>
+            <div class="collapsible-body">
+                <div class="markdown prose w-full break-words dark:prose-invert dark"><p>Семантичні теги в HTML це елементи, які мають смислове значення та описують зміст, структуру та значення елементів на сторінці. Використання семантичних тегів допомагає робити HTML-код більш зрозумілим для розробників та браузерів, покращує доступність та SEO.</p><p>Основні переваги семантичних тегів:</p><ol><li><p><strong>Зрозумілість коду:</strong> Імена семантичних тегів самі по собі вказують на їхнє значення, що робить код більш зрозумілим і легким для інших розробників читати.</p></li><li><p><strong>SEO:</strong> Використання семантичних тегів може поліпшити індексацію сторінок пошуковими системами.</p></li><li><p><strong>Доступність:</strong> Семантичні теги допомагають робити веб-сайти більш доступними для користувачів з вадами зору, а також для інших асистивних технологій.</p></li></ol><p>Приклади семантичних тегів:</p><ol><li><p><code>&lt;header&gt;</code>: Визначає верхню частину сторінки або секції.</p></li><li><p><code>&lt;nav&gt;</code>: Визначає блок для навігаційних посилань.</p></li><li><p><code>&lt;main&gt;</code>: Визначає основний контент сторінки.</p></li><li><p><code>&lt;article&gt;</code>: Визначає незалежний, самостійний контент, який може бути повністю розміщений на іншому ресурсі.</p></li><li><p><code>&lt;section&gt;</code>: Визначає секцію документа.</p></li><li><p><code>&lt;aside&gt;</code>: Визначає контент, який стоїть віддільно від головного контенту (наприклад, бічні бари, реклама).</p></li><li><p><code>&lt;footer&gt;</code>: Визначає нижню частину сторінки або секції.</p></li><li><p><code>&lt;figure&gt;</code> і <code>&lt;figcaption&gt;</code>: Визначають зображення або мультимедійний контент та його підпис.</p></li><li><p><code>&lt;time&gt;</code>: Визначає дату або час.</p></li></ol><p>Ці теги допомагають створювати структурований та змістовно збагачений HTML, що полегшує розуміння структури документа як розробниками, так і браузерами та іншими агентами.</p></div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+                Які теги добавили в HTML5?
+            </div>
+            <div class="collapsible-body">
+                <div class="markdown prose w-full break-words dark:prose-invert dark"><p>HTML5 вніс багато нових тегів і атрибутів, що значно поліпшили можливості мови та розширили функціональність веб-розробки. Ось деякі з нових тегів, які були додані в HTML5:</p><ol><li><p><strong>Семантичні блокові елементи:</strong></p><ul><li><code>&lt;article&gt;</code>: Визначає самостійний контент, який може існувати незалежно від інших частин документа.</li><li><code>&lt;section&gt;</code>: Визначає секцію документа.</li><li><code>&lt;nav&gt;</code>: Визначає блок для навігаційних посилань.</li><li><code>&lt;header&gt;</code>: Визначає верхню частину сторінки або секції.</li><li><code>&lt;footer&gt;</code>: Визначає нижню частину сторінки або секції.</li><li><code>&lt;aside&gt;</code>: Визначає контент, який стоїть віддільно від головного контенту (наприклад, бічні бари, реклама).</li></ul></li><li><p><strong>Елементи для введення форм:</strong></p><ul><li><code>&lt;datalist&gt;</code>: Визначає список варіантів для елемента <code>&lt;input&gt;</code> з атрибутом <code>list</code>.</li><li><code>&lt;output&gt;</code>: Визначає область виведення для результатів форми.</li></ul></li><li><p><strong>Мультимедійні теги:</strong></p><ul><li><code>&lt;audio&gt;</code>: Визначає аудіо-елемент для вставки звукового контенту.</li><li><code>&lt;video&gt;</code>: Визначає відео-елемент для вставки відео-контенту.</li></ul></li><li><p><strong>Графічні теги:</strong></p><ul><li><code>&lt;canvas&gt;</code>: Визначає область, на якій можна малювати за допомогою JavaScript.</li></ul></li><li><p><strong>Теги для роботи з ресурсами:</strong></p><ul><li><code>&lt;embed&gt;</code>: Вставляє зовнішні ресурси, такі як плагіни, аудіо або відео.</li><li><code>&lt;source&gt;</code>: Вказує ресурс для вкладання у елементи <code>&lt;audio&gt;</code> та <code>&lt;video&gt;</code>.</li></ul></li><li><p><strong>Атрибути форм:</strong></p><ul><li><code>autocomplete</code>: Атрибут для управління автозаповненням полів форми.</li><li><code>placeholder</code>: Атрибут для встановлення підказки для користувача у полі введення.</li></ul></li><li><p><strong>Атрибути гіперпосилань:</strong></p><ul><li><code>download</code>: Атрибут для вказання, що посилання призначене для завантаження файлу замість переходу за ним.</li></ul></li></ol><p>Це лише деякі приклади тегів та атрибутів, які були додані в HTML5. Ці зміни спрямовані на поліпшення структури документа, роботи з мультимедіа та забезпечення більшої доступності та можливостей веб-розробникам.</p></div>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+                Що таке data-атрибути, в яких випадках їх використовуєте?
+            </div>
+            <div class="collapsible-body">
+                data-атрибути - це спеціальні атрибути HTML-тегів, які починаються з префіксу data-. Вони призначені для зберігання власних даних в елементах HTML, які можуть бути використані для додаткового опису або ідентифікації елементів. Використання data-атрибутів дозволяє розробникам зберігати інформацію без втручання у стандартні атрибути. Деякі випадки використання data-атрибутів: <ol><li>JavaScript: За допомогою data-атрибутів можна зберігати дані, які JavaScript потрібно використовувати. Наприклад, для зберігання ідентифікаторів чи параметрів, які використовуються в динамічних скриптах. JavaScript може отримати значення data-action для подальших дій.</li><li>CSS: Можна використовувати data-атрибути для створення CSS-селекторів або передачі додаткових стилів. В CSS: .user[data-status="active"] {} - Це дозволить стилізувати елемент із конкретним data-атрибутом.</li><li>HTML: Інколи data-атрибути використовуються для вставки додаткової інформації, яку може використовувати браузер або інші інструменти.</li></ol> Тут data-analytics та data-location можуть вказувати на аналітичні дані для слідкування кліків та місця розташування посилання.
+
+                Важливо пам'ятати, що data-атрибути не повинні використовуватися для зберігання інформації, яка повинна бути доступна для користувачів або врахована в пошукових системах. Вони призначені для зберігання технічної або внутрішньої інформації, яка не відображається на сторінці напряму.
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+            </div>
+            <div class="collapsible-body"><span>
+
+              </span></div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+            </div>
+            <div class="collapsible-body"><span>
+
+              </span></div>
+        </li>
+
+<!--        <li>-->
+<!--            <div class="collapsible-header"><i class="material-icons">filter_drama</i>-->
+
+<!--            </div>-->
+<!--            <div class="collapsible-body">-->
+
+<!--            </div>-->
+<!--        </li>-->
+    </ul>
+
+<!--    <h5 id="js">JS</h5>-->
+<!--    <ul class="collapsible">-->
+<!--        <li>-->
+<!--            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>-->
+<!--            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <div class="collapsible-header"><i class="material-icons">place</i>Second</div>-->
+<!--            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>-->
+<!--            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>-->
+<!--        </li>-->
+<!--    </ul>-->
+
+</div>
+<script src="script.js"></script>
 </body>
 </html>
