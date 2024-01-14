@@ -1,1 +1,1 @@
-# tech-interview
+# Useful resources for the tech interview preparation
