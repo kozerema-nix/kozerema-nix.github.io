@@ -100,6 +100,9 @@
                     counter.increment(); // Output: 2
                     counter.decrement(); // Output: 1
 
+                    !! Важливо !!
+                    Якщо замість count++ повертати count + 1 то це буде помиклою, оскільки ми повертаємо інше значення, а не маніпулюємо
+                    змінною count
                 </pre>
 
                 <p>У цьому прикладі функція createCounter створює дві локальні функції: increment та decrement, які мають доступ до змінної
@@ -953,38 +956,28 @@
             </div>
             <div class="collapsible-body">
 
-                <ol>
-                    <li>
-                        <b>Length</b>
-                        <p>The length property returns the length of a string:</p>
-                        <pre>
+                <div>
+                    <h5><b>Length</b></h5>
+                    <p>The length property returns the length of a string:</p>
+                    <pre>
                             let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                             let length = text.length; // 26
                         </pre>
-                    </li>
-                    <li>
-                        <b>Extracting String Characters</b>
-                        <p>
-                            There are 4 methods for extracting string characters:</p>
-                        <ul>
-                            <li>The at(position) Method</li>
-                            <li>The charAt(position) Method</li>
-                            <li>The charCodeAt(position) Method - The method returns a UTF-16 code (an integer between 0 and 65535 - in our
-                                case it's not "H", but 72 number).
-                            </li>
-                            <li>Using property access [] like in arrays</li>
-                        </ul>
-
-                        <b>charAt()</b>
-                        <p>The charAt() method returns the character at a specified index (position) in a string:</p>
-                        <pre>
-                            let text = "HELLO WORLD";
-                            let char = text.charAt(0); // "H"
-                        </pre>
-
-                        <b>String at()</b>
-                        <p>ES2022 introduced the string method at():</p>
-                        <pre>
+                    <hr>
+                    <h4><b>Extracting String Parts</b></h4>
+                    <p>
+                        There are 4 methods for extracting string characters:</p>
+                    <ul>
+                        <li>The at(position) Method</li>
+                        <li>The charAt(position) Method</li>
+                        <li>The charCodeAt(position) Method - The method returns a UTF-16 code (an integer between 0 and 65535 - in our
+                            case it's not "H", but 72 number).
+                        </li>
+                        <li>Using property access [] like in arrays</li>
+                    </ul>
+                    <h5><b>at()</b></h5>
+                    <p>ES2022 introduced the string method at():</p>
+                    <pre>
                             Get the third letter of name:
 
                             const name = "W3Schools";
@@ -995,22 +988,14 @@
                             const name = "W3Schools";
                             let letter = name[2];
                         </pre>
-                        <p>The at() method is a new addition to JavaScript. The at() method returns the character at a specified index
-                            (position) in a string. It allows the use of negative indexes while charAt() do not. The at() method is
-                            supported in all modern browsers since March 2022. Now
-                            you can use myString.at(-2) instead of charAt(myString.length-2).</p>
-                    </li>
-
-                </ol>
-
-                <div>
-                    <h6><b>Extracting String Parts</b></h6>
-                    <p>There are 3 methods for extracting a part of a string:</p>
-                    <ul>
-                        <li>slice(start, end)</li>
-                        <li>substring(start, end)</li>
-                        <li>substr(start, length)</li>
-                    </ul>
+                    <p>The at() method is a new addition to JavaScript. The at() method returns the character at a specified index
+                        (position) in a string. It allows the use of negative indexes while charAt() do not. The at() method is
+                        supported in all modern browsers since March 2022. Now
+                        you can use myString.at(-2) instead of charAt(myString.length-2).</p>
+                    <hr>
+                    <h4><b>Extracting String Parts</b></h4>
+                    <p>There are 3 methods for extracting a part of a string: slice(start, end); substring(start, end); substr(start,
+                        length)</p>
                     <hr>
                     <h5><b>slice()</b></h5>
                     <p>slice() extracts a part of a string and returns the extracted part in a new string. The method takes 2 parameters:
@@ -1131,23 +1116,522 @@
                         // If the separator is "", the returned array will be an array of single characters:
                         text.split("") // ['I', 'l', 'o', 'v', 'e']
                     </pre>
+                    <hr>
+                    <h4><b>String Search</b></h4>
+                    <hr>
+                    <h5><b>indexOf()</b></h5>
+                    <p>The indexOf() method returns the index (position) of the first occurrence of a string in a string, or it returns -1
+                        if the string is not found:</p>
+                    <pre>
+                        let text = "Please locate where 'locate' occurs!";
+                        let index = text.indexOf("locate"); // вказує індекс першої літери шуканого слова - 7
+                    </pre>
+                    <p>JavaScript counts positions from zero. 0 is the first position in a string, 1 is the second, 2 is the third, ...</p>
+                    <hr>
+                    <h5><b>lastIndexOf()</b></h5>
+                    <p>The lastIndexOf() method returns the index of the last occurrence of a specified text in a string:</p>
+                    <pre>
+                        let text = "Please locate where 'locate' occurs!";
+                        let index = text.lastIndexOf("locate"); // 21
+
+                        // Both methods accept a second parameter as the starting position for the search:
+                        let index2 = text.indexOf("locate", 15);
+                    </pre>
+                    <p>Both indexOf(), and lastIndexOf() return -1 if the text is not found. The lastIndexOf() methods searches backwards
+                        (from the end to the beginning), meaning: if the second parameter is 15, the search starts at position 15, and
+                        searches to the beginning of the string.</p>
+                    <hr>
+                    <h5><b>search()</b></h5>
+                    <p>The search() method searches a string for a string (or a regular expression) and returns the position of the
+                        match:</p>
+                    <pre>
+                        let text = "Please locate where 'locate' occurs!";
+                        text.search("locate"); // 7
+                        text.search(/locate/);
+                    </pre>
+                    <h6>Did You Notice?</h6>
+                    <p>The two methods, indexOf() and search(), are equal? They accept the same arguments (parameters), and return the same
+                        value?</p>
+                    <p>The two methods are <b>NOT equal</b>. These are the differences:</p>
+                    <ul>
+                        <li>The <b>search()</b> method cannot take a second start position argument.</li>
+                        <li>The <b>indexOf()</b> method cannot take powerful search values (regular expressions).</li>
+                    </ul>
+                    <hr>
+                    <h5><b>match()</b></h5>
+                    <p>The match() method returns an array containing the results of matching a string against a string (or a regular
+                        expression).</p>
+                    <pre>
+                        let text = "The rain in SPAIN stays mainly in the plain";
+
+                        // Perform a search for "ain":
+                        text.match("ain"); // 1 ain
+                        text.match(/ain/); // 1 ain
+
+                        // Perform a global search for "ain":
+                        text.match(/ain/g); // 3 ain, ain, ain
+
+                        // Perform a global, case-insensitive search for "ain":
+                        text.match(/ain/gi); // 4 ain, AIN, ain, ain
+                    </pre>
+                    <p>If a regular expression does not include the g modifier (global search), match() will return only the first match in
+                        the string.</p>
+                    <hr>
+                    <h5><b>matchAll()</b></h5>
+                    <p>The matchAll() method returns an iterator containing the results of matching a string against a string (or a
+                        regular expression). matchAll() is an ES2020 feature. </p>
+                    <pre>
+                        let text = "I love cats. Cats are very easy to love. Cats are very popular."
+                        const iterator = text.matchAll("Cats"); // Case sensitive - 2
+
+                        // If you want to search case insensitive, the insensitive flag (i) must be set:
+                        const iterator2 = text.matchAll(/Cats/gi); // 3
+                    </pre>
+                    <hr>
+                    <h5><b>includes()</b></h5>
+                    <p>The includes() method returns true if a string contains a specified value. Otherwise it returns false. includes()
+                        is case sensitive. includes() is an ES6 feature. includes() is not supported in Internet Explorer.</p>
+                    <pre>
+                        let text = "Hello world, welcome to the universe.";
+                        text.includes("world"); // true
+
+                        // Check if a string includes "world". Start at position 12:
+                        text.includes("world", 12); // false
+                    </pre>
+                    <hr>
+                    <h5><b>startsWith()</b></h5>
+                    <p>The startsWith() method returns true if a string begins with a specified value. Otherwise it returns false.
+                        startsWith() is case sensitive.</p>
+                    <pre>
+                        let text = "Hello world, welcome to the universe.";
+
+                        text.startsWith("Hello"); // true
+                        text.startsWith("world") // false
+
+                        // A start position for the search can be specified:
+                        text.startsWith("world", 5) // false
+                        text.startsWith("world", 6) // true
+                    </pre>
+                    <hr>
+                    <h5><b>endsWith()</b></h5>
+                    <p>The endsWith() method returns true if a string ends with a specified value. Otherwise it returns false:</p>
+                    <pre>
+                        // Check if a string ends with "Doe":
+
+                        let text = "John Doe";
+                        text.endsWith("Doe") // true
+
+                        // Check if the 11 first characters of a string ends with "world":
+                        let text = "Hello world, welcome to the universe.";
+                        text.endsWith("world", 11); // true
+                    </pre>
                 </div>
             </div>
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>
-
+                Методи робити з масивами (Arrays)
             </div>
             <div class="collapsible-body">
+                <p>Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.</p>
+                <p><b>Accessing the First Array Element</b> - let fruit = fruits[0];</p>
+                <p><b>Accessing the Last Array Element</b> - let fruit = fruits[fruits.length - 1];</p>
+                <h4><b>Converting an Array to a String</b></h4>
+                <hr>
+                <h5><b>toString()</b></h5>
+                <p>The JavaScript method toString() converts an array to a string of (comma separated) array values.</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    document.getElementById("demo").innerHTML = fruits.toString(); // Banana,Orange,Apple,Mango
+                </pre>
+                <hr>
+                <h5><b>at()</b></h5>
+                <p>The at() method returns an indexed element from an array. The at() method returns the same as []. Many languages allows
+                    negative bracket indexing like [-1] to access elements from the end of an object / array / string.
 
+                    This is not possible in JavaScript, because [] is used for accessing both arrays and objects. obj[-1] refers to the
+                    value of key -1, not to the last property of the object.
+
+                    The at() method was introduced in ES2022 to solve this problem</p>
+                <pre>
+                    // Get the third element of fruits using at():
+                    let fruit = fruits.at(2);
+
+                    // Get the third element of fruits using []:
+                    let fruit = fruits[2];
+                </pre>
+                <hr>
+                <h5><b>join()</b></h5>
+                <p>The join() method also joins all array elements into a string. It behaves just like toString(), but in addition you
+                    can specify the separator:</p>
+                <pre>
+                    fruits.join(" * "); // Banana * Orange * Apple * Mango
+                </pre>
+                <hr>
+                <h4><b>Popping and Pushing</b></h4>
+                <p>When you work with arrays, it is easy to remove elements and add new elements.
+
+                    This is what popping and pushing is:
+
+                    Popping items out of an array, or pushing items into an array.</p>
+                <hr>
+                <h5><b>pop()</b></h5>
+                <p>The pop() method removes the last element from an array:</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    fruits.pop(); // ["Banana", "Orange", "Apple"]
+
+                    // The pop() method returns the value that was "popped out":
+                    let fruit = fruits.pop(); // "Mango"
+                </pre>
+                <hr>
+                <h5><b>push()</b></h5>
+                <p>The push() method adds a new element to an array (at the end):</p>
+                <pre>
+                    fruits.push("Kiwi"); // ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
+                </pre>
+                <hr>
+                <h4><b>Shifting Elements</b></h4>
+                <p>Shifting is equivalent to popping, but working on the first element instead of the last.</p>
+                <hr>
+                <h5><b>shift()</b></h5>
+                <p>The shift() method removes the first array element and "shifts" all other elements to a lower index.</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    fruits.shift(); // ["Orange", "Apple", "Mango"]
+
+                    // The shift() method returns the value that was "shifted out":
+                    let fruit = fruits.shift(); // "Banana"
+                </pre>
+                <hr>
+                <h5><b>unshift()</b></h5>
+                <p>The unshift() method <b>adds a new element to an array (at the beginning)</b>, and "unshifts" older elements:</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    fruits.unshift("Lemon"); // ["Lemon", "Banana", "Orange", "Apple", "Mango"]
+                </pre>
+                <hr>
+                <h5><b>delete()</b></h5>
+                <p>Warning ! Using delete() leaves undefined holes in the array. Use pop() or shift() instead.</p>
+                <pre>
+                    delete fruits[0];
+                    // array "не посунувся", а тепер індекс [0] елемент буде undefined
+                </pre>
+                <hr>
+                <h4><b>Merging Arrays (Concatenating)</b></h4>
+                <p>In programming languages, concatenation means joining strings end-to-end.
+
+                    Concatenation "snow" and "ball" gives "snowball".
+
+                    Concatenating arrays means joining arrays end-to-end.</p>
+                <hr>
+                <h5><b>concat()</b></h5>
+                <p>The concat() method creates a new array by merging (concatenating) existing arrays. The concat() method does not change
+                    the existing arrays. It always returns a new array.</p>
+                <pre>
+                    const myGirls = ["Cecilie", "Lone"];
+                    const myBoys = ["Emil", "Tobias", "Linus"];
+
+                    const myChildren = myGirls.concat(myBoys); // ["Cecilie", "Lone", "Emil", "Tobias", "Linus"]
+
+                    // The concat() method can take any number of array arguments.
+                    const myChildren = arr1.concat(arr2, arr3);
+
+                    // The concat() method can also take strings as arguments:
+                    const myChildren = arr1.concat("Peter");
+                </pre>
+
+                <hr>
+                <h5><b>copyWithin()</b></h5>
+                <p>The copyWithin() method copies array elements to another position in an array:</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    fruits.copyWithin(2, 0); // ["Banana", "Orange", "Banana", "Orange"]
+                </pre>
+
+                <hr>
+                <h5><b>flat()</b></h5>
+                <p>ES2019 Introduced the Array flat() method. The flat() method creates a new array with sub-array elements concatenated to
+                    a specified depth.</p>
+                <pre>
+                    const myArr = [[1,2],[3,4],[5,6]];
+                    const newArr = myArr.flat(); // [1,2,3,4,5,6]
+                </pre>
+                <hr>
+                <h5><b>splice()</b></h5>
+                <p>Метод splice() в JavaScript використовується для зміни вмісту масиву, видаляючи, замінюючи або додавання нових елементів.
+                    Він може мати кілька параметрів:</p>
+                <ol>
+                    <li>
+                        <b>start (обов'язковий):</b>
+                        <p>Індекс, з якого починаються зміни у масиві.</p>
+                    </li>
+                    <li>
+                        <b>deleteCount (опціональний):</b>
+                        <p>Кількість елементів, які потрібно видалити з масиву починаючи з позиції start.</p>
+                    </li>
+                    <li>
+                        <b>items (опціональний): </b>
+                        <p>Елементи, які потрібно додати до масиву, починаючи з позиції start.</p>
+                    </li>
+
+                </ol>
+                <p>Наприклад, якщо вам потрібно видалити елемент з масиву за індексом index, ви можете використати такий код:</p>
+                <pre>
+                    const removedItem = myArray.splice(index, 1);
+                </pre>
+                <p>Якщо вам потрібно видалити кілька елементів, можна передати більше одного параметра:</p>
+                <pre>
+                    const removedItems = myArray.splice(startIndex, deleteCount);
+                </pre>
+                <p>Для додавання елементів до масиву на певній позиції, ви можете використати splice() так:</p>
+                <pre>myArray.splice(startIndex, 0, item1, item2, ...);</pre>
+                <p>Де startIndex - це позиція, на яку потрібно вставити нові елементи, а item1, item2, ... - це елементи, які потрібно
+                    додати. Наприклад:</p>
+                <pre>
+                    const myArray = [1, 2, 3, 4, 5];
+                    myArray.splice(2, 0, 6); // Вставляє число 6 на позицію 2 - [1, 2, 6, 3, 4, 5]
+                </pre>
+
+                <hr>
+                <h5><b>slice()</b></h5>
+                <p>The slice() method slices out a piece of an array into a new array. The slice() method creates a new array. The
+                    slice() method does not remove any elements from the source array.</p>
+                <pre>
+                    // Slice out a part of an array starting from array element 1 ("Orange"):
+                    const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+                    const citrus = fruits.slice(1); // ["Orange", "Lemon", "Apple", "Mango"]
+
+                    // Slice out a part of an array starting from array element 3 ("Apple"):
+                    const citrus = fruits.slice(3); ["Apple", "Mango"]
+                </pre>
+                <p>The slice() method can take two arguments like slice(1, 3). The method then selects elements from the start argument, and
+                    up to (but not including) the end argument.</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+                    const citrus = fruits.slice(1, 3); // ["Orange", "Lemon"];
+                </pre>
+                <p>If the end argument is omitted, like in the first examples, the slice() method slices out the rest of the array.</p>
+                <pre>const citrus = fruits.slice(2); // ["Lemon", "Apple", "Mango"];</pre>
+
+                <hr>
+                <h4><b>Array Search</b></h4>
+                <hr>
+                <h5><b>indexOf()</b></h5>
+                <p>The indexOf() method searches an array for an element value and returns its position. Note: The first item has position
+                    0, the second item has position 1, and so on.</p>
+                <p>Array.indexOf() returns -1 if the item is not found. If the item is present more than once, it returns the position of
+                    the first occurrence.</p>
+                <p>array.indexOf(item, start)
+                    <br> <b><i>item</i></b> Required. The item to search for.
+                    <br> <b><i>start</i></b> Optional. Where to start the search. Negative values will start at the given position
+                    counting from the end, and search to the end.</p>
+                <pre>
+                    const fruits = ["Apple", "Orange", "Apple", "Mango"];
+                    let position = fruits.indexOf("Apple") + 1; // 1
+                </pre>
+                <hr>
+                <h5><b>lastIndexOf()</b></h5>
+                <p>Array.lastIndexOf() is the same as Array.indexOf(), but returns the position of the last occurrence of the specified
+                    element.</p>
+                <p>array.lastIndexOf(item, start)
+                    <br> <b><i>item</i></b> Required. The item to search for.
+                    <br> <b><i>start</i></b> Optional. Where to start the search. Negative values will start at the given position
+                    counting from the end, and search to the end.</p>
+
+                <hr>
+                <h5><b>includes()</b></h5>
+                <p>ECMAScript 2016 introduced Array.includes() to arrays. This allows us to check if an element is present in an array
+                    (including NaN, unlike indexOf).</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+                    fruits.includes("Mango"); // is true
+                </pre>
+                <p>Array.includes() allows to check for NaN values. Unlike Array.indexOf().</p>
+
+                <hr>
+                <h5><b>find()</b></h5>
+                <p>The find() method returns the value of the first array element that passes a test function.
+
+                    This example finds (returns the value of) the first element that is larger than 18:</p>
+                <pre>
+                    const numbers = [4, 9, 16, 25, 29];
+                    let first = numbers.find(myFunction);
+
+                    function myFunction(value, index, array) {
+                      return value > 18;
+                    }
+                </pre>
+                <p>Note that the function takes 3 arguments:
+
+                    The item value
+                    The item index
+                    The array itself</p>
+
+                <hr>
+                <h5><b>findIndex()</b></h5>
+                <p>The findIndex() method returns the index of the first array element that passes a test function.</p>
+                <hr>
+                <h5><b>findLast()</b></h5>
+                <p>ES2023 added the findLast() method that will start from the end of an array and return the value of the first element
+                    that satisfies a condition.</p>
+                <pre>
+                    const temp = [27, 28, 30, 40, 42, 35, 30];
+                    let high = temp.findLast(x => x > 40);
+                </pre>
+                <hr>
+                <h5><b>findLastIndex()</b></h5>
+                <p>The findLastIndex() method finds the index of the last element that satisfies a condition.</p>
+                <pre>
+                    const temp = [27, 28, 30, 40, 42, 35, 30];
+                    let pos = temp.findLastIndex(x => x > 40);
+                </pre>
+
+                <hr>
+                <h4><b>Sorting Arrays</b></h4>
+                <hr>
+                <h5><b>sort()</b></h5>
+                <p>The sort() method sorts an array alphabetically:</p>
+                <pre>
+                    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+                    fruits.sort(); // [Apple,Banana,Mango,Orange]
+                </pre>
+                <hr>
+                <h5><b>reverse()</b></h5>
+                <p>The reverse() method reverses the elements in an array. </p>
+                <p>By combining sort() and reverse(), you can sort an array in descending order.</p>
+                <pre>
+                    fruits.sort();
+                    fruits.reverse();
+                </pre>
+                <p>ES2023 added the toSorted() method as a safe way to sort an array without altering the original array.
+
+                    The difference between toSorted() and sort() is that the first method creates a new array, keeping the original array
+                    unchanged, while the last method alters the original array.</p>
+                <p>
+                    ES2023 added the toReversed() method as a safe way to reverse an array without altering the original array.
+
+                    The difference between toReversed() and reverse() is that the first method creates a new array, keeping the original
+                    array unchanged, while the last method alters the original array.
+                </p>
+                <p>By default, the sort() function sorts values as strings.
+
+                    This works well for strings ("Apple" comes before "Banana").
+
+                    If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+
+                    Because of this, the sort() method will produce incorrect result when sorting numbers.
+
+                    You can fix this by providing a compare function:</p>
+                <pre>
+                    const points = [40, 100, 1, 5, 25, 10];
+
+                    points.sort(); // [1, 10, 100, 25, 40, 5]
+                    points.sort(function(a, b){return a - b});  // [1, 5, 10, 25, 40, 100]
+
+                    // Use the same trick to sort an array descending:
+                    points.sort(function(a, b){return b - a});
+
+                    // Sorting an Array in Random Order
+                    points.sort(function(){return 0.5 - Math.random()});
+                </pre>
+
+                <hr>
+                <h5><b>Using Math.min() / Math.max() on an Array</b></h5>
+                <p>You can use Math.min.apply to find the lowest number in an array:</p>
+                <pre>
+                    function myArrayMin(arr) {
+                      return Math.min.apply(null, arr);
+                    }
+                </pre>
+
+                <hr>
+                <h5><b>Sorting Object Arrays</b></h5>
+                <p>JavaScript arrays often contain objects:</p>
+                <pre>
+                    const cars = [
+                      {type:"Volvo", year:2016},
+                      {type:"Saab", year:2001},
+                      {type:"BMW", year:2010}
+                    ];
+                    cars.sort(function(a, b){return a.year - b.year});
+                </pre>
+                <p>Even if objects have properties of different data types, the sort() method can be used to sort the array.
+
+                    The solution is to write a compare function to compare the property values:</p>
             </div>
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>
-
+                Цикли в JS
             </div>
             <div class="collapsible-body">
+                <p>
+                    У JavaScript існує кілька видів циклів, які можна використовувати для повторення коду з різними умовами. Ось деякі з них
+                    та їхні особливості:
+                </p>
+                <ol>
+                    <li>
+                        <b>while</b>
+                        <p>Виконує блок коду, поки умова істинна.</p>
+                        <pre>
+                            while (condition) {
+                                // код, який виконується поки умова істинна
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <b>do...while</b>
+                        <p>Виконує блок коду принаймні один раз, а потім продовжує виконувати, поки умова залишається істинною.</p>
+                        <pre>
+                            do {
+                                // код, який виконується принаймні один раз
+                            } while (condition);
+                        </pre>
+                    </li>
+                    <li>
+                        <b>for</b>
+                        <p>Використовується для повторення блоку коду певну кількість разів. Часто використовується, коли кількість ітерацій
+                            відома.</p>
+                        <pre>
+                            for (let i = 1; i <= 5; i++) {
+                                console.log(i);
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <b> for...in</b>
+                        <p>Перебирає властивості об'єкта.</p>
+                        <pre>
+                            // Приклад: Перебір властивостей об'єкта
+                            const person = {
+                                name: 'John',
+                                age: 30,
+                                gender: 'male'
+                            };
 
+                            for (let key in person) {
+                                console.log(key + ': ' + person[key]);
+                            }
+                        </pre>
+                    </li>
+                    <li>
+                        <b>for...of</b>
+                        <p>Перебирає значення об'єктів, які є перераховуваними (наприклад, масиви або строки).</p>
+                        <pre>
+                            // Приклад: Перебір елементів масиву
+                            const fruits = ['apple', 'banana', 'orange'];
+
+                            for (let fruit of fruits) {
+                                console.log(fruit);
+                            }
+                        </pre>
+                    </li>
+                </ol>
+                <p>Кожен з цих циклів має свої використання та особливості. Наприклад, for частіше використовується для ітерації по масивам,
+                    for...in - для перебору властивостей об'єктів, а while може використовуватися, коли кількість ітерацій не відома
+                    наперед.</p>
             </div>
         </li>
         <li>
